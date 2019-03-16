@@ -1,8 +1,8 @@
 ### Dotfiles
-Neovim
-Tmux
-iTerm
-
+>Neovim
+>Tmux
+>iTerm
+----
 Edit colors in ./local/share/nvim/plugged/vim-gotham/colors/ghotham256.vim
 ```sh
 let s:colors.white     = { 'gui': '#f0f2cc', 'cterm': 230 }
