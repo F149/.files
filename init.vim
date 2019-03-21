@@ -27,6 +27,7 @@ set linebreak                           " Wrap lines at convenient points
 set wildmenu                            " Used for command line completion
 "set wildmode=list:longest,full          " Allows you to expand wildmenu
 set hidden                              " Allow Vim to manage multiple buffers effectively
+set foldmethod=indent                   " Automatic fold based on the indentation
 set hlsearch       	            		" Highlight searches by default
 set incsearch                  			" Find the next match as we type the search
 set ignorecase                          " Ignore case when searching...
@@ -103,7 +104,9 @@ set t_Co=256
 "TagbarToggle
         nmap <F8> :TagbarToggle<CR>
 
-
+"Run current file in vim
+    nnoremap <F5> <esc>:w<enter>:!%:p<enter>
+    inoremap <F5> <esc>:w<enter>:!%:p<enter>
 
 "PLUGINS ====================================================================================================
 call plug#begin('~/.local/share/nvim/plugged')
@@ -132,12 +135,16 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'mitsuhiko/vim-python-combined',
 
 "Advanced
-    Plug 'vim-airline/vim-airline',
-    Plug 'vim-airline/vim-airline-themes',
     Plug 'terryma/vim-multiple-cursors',
-    Plug 'whatyouhide/vim-gotham',
-    "Plug 'ryanoasis/vim-devicons',
-    "Plug 'morhetz/gruvbox',
+	Plug 'sts10/vim-zipper',
+
+"Theme
+	Plug 'vim-airline/vim-airline',
+	Plug 'whatyouhide/vim-gotham',
+	Plug 'vim-airline/vim-airline-themes',
+	"Plug 'ryanoasis/vim-devicons',
+	"Plug 'morhetz/gruvbox',
+
 
 call plug#end()
 
@@ -166,6 +173,11 @@ call plug#end()
     hi CursorLineNr guibg='#6A0C0B'
     "gui='bold'
     "hi LineNr guifont='Arame:14'
+
+"Set braces color
+    "syn match Braces display '[{}()\[\]]'
+    "hi Braces guifg=#599cab gui=italic
+
 
 
 "SEEING IS BELIEVING ========================================================================================
