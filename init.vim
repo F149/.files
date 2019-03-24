@@ -7,6 +7,7 @@ set title                               " Set the terminal title
 set lazyredraw                          " Buffer screen updates instead of updating all the time
 set scrolloff=3                         " Maintain more context around the cursor
 set termguicolors                       " Use True_Color in the terminal
+set completeopt-=preview                " Disable Jedi PyDoc splin window
 set nowrap                              " Stop line breaking
 set nu          		               	" Show line number
 set showcmd                             " Show incomplete cmds down the bottom
@@ -62,9 +63,9 @@ set t_Co=256
 
 "EMMET
     let g:user_emmet_mode='a'                "EMMET enable all function in all mode.
-    let g:user_emmet_leader_key='<C-m>'      "EMMET remap the default <C-Y> leader
-    let g:user_emmet_install_global = 0      "EMMET enable only html/css
-    autocmd FileType html,css EmmetInstall   "EMMET enable only html/css
+"    let g:user_emmet_leader_key='<C-m>'      "EMMET remap the default <C-Y> leader
+"    let g:user_emmet_install_global = 0      "EMMET enable only html/css
+"    autocmd FileType html,css EmmetInstall   "EMMET enable only html/css
 
 "Apply Neovim configurations without restarting
     augroup au_common
@@ -88,8 +89,8 @@ set t_Co=256
     " Open NERDTree
         map <C-a> :NERDTreeToggle<CR>
     " Tab navigation:ALT + <Right>-next, <Left>-previous
-        map  <A-Right> :tabn<CR>
-        map  <A-Left> :tabp<CR>
+        map  <C-d> :tabn<CR>
+        "map  <C-x> :tabp<CR>
         "nnoremap <A-F1> 1gt
         "nnoremap <A-F2> 2gt
         "nnoremap <A-F3> 3gt
@@ -178,7 +179,10 @@ call plug#end()
     "syn match Braces display '[{}()\[\]]'
     "hi Braces guifg=#599cab gui=italic
 
-
+"Set tab bar color
+    hi TabLineSel guibg='#6A0C0B' guifg='#f0f2cc' gui=italic
+    hi TabLine gui=italic
+    "hi TabLineSel guifg='#0c1014' guibg='#f0f2cc' gui=bold
 
 "SEEING IS BELIEVING ========================================================================================
 " " Annotate every line
